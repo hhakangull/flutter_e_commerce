@@ -8,7 +8,7 @@ void main() {
       theme: ThemeData(
           // backgroundColor: primary,
           fontFamily: 'Poppins'),
-      home: HomePageIndex(),
+      home: const HomePageIndex(),
     ),
   );
 }

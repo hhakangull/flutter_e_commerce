@@ -10,6 +10,7 @@ class DefaultIconBoxWithIcon extends StatelessWidget {
       this.defaultSize,
       this.color,
       this.width,
+      this.onPressed,
       this.height})
       : super(key: key);
 
@@ -17,32 +18,37 @@ class DefaultIconBoxWithIcon extends StatelessWidget {
   Color? color = secondary;
   double? width;
   double? height;
+  double? iconSize;
   double? defaultSize = CoreTextStyle.defaultTextSize;
+  VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width ?? 35,
-      height: height ?? 35,
-      decoration: BoxDecoration(
-        color: white,
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: secondary.withOpacity(0.25),
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: width ?? 35,
+        height: height ?? 35,
+        decoration: BoxDecoration(
+          color: white,
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: secondary.withOpacity(0.25),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: secondary.withOpacity(0.5),
+              blurRadius: 5,
+              offset: const Offset(0, 5),
+            )
+          ],
         ),
-        boxShadow: [
-          BoxShadow(
-            color: secondary.withOpacity(0.5),
-            blurRadius: 5,
-            offset: const Offset(0, 5),
-          )
-        ],
-      ),
-      child: Center(
-        child: Icon(
-          widgetIcon,
-          size: defaultSize,
-          color: color,
+        child: Center(
+          child: Icon(
+            widgetIcon,
+            size: defaultSize,
+            color: color,
+          ),
         ),
       ),
     );

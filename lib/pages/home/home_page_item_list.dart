@@ -109,7 +109,7 @@ class _HomePageItemListState extends State<HomePageItemList> {
                                             : LineIcons.heart,
                                         defaultSize: 23,
                                         color: product.favorite == true
-                                            ? Colors.red
+                                            ? Colors.redAccent
                                             : null,
                                       ),
                                     ),
